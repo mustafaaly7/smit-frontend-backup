@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "./assets/images/logo-OpazD70S.png";
-import BlueButton from "./components/blueButton";
+import BlueButton from "./components/button";
 
 export default function Login() {
   const [isRegister, setIsRegister] = useState(false);
@@ -30,7 +30,9 @@ export default function Login() {
           <div className="flex justify-center mt-4 space-x-4">
             <button
               className={`p-2 px-4 rounded-lg font-medium transition-colors ${
-                !isRegister ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-600"
+                !isRegister
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-gray-600"
               }`}
               onClick={() => setIsRegister(false)}
             >
@@ -38,7 +40,9 @@ export default function Login() {
             </button>
             <button
               className={`p-2 px-4 rounded-lg font-medium transition-colors ${
-                isRegister ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-600"
+                isRegister
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-gray-600"
               }`}
               onClick={() => setIsRegister(true)}
             >
