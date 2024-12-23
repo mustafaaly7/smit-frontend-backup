@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "./assets/images/logo-OpazD70S.png";
 import BlueButton from "./components/button";
+import ThemeText from "./components/Themetext";
 
 export default function Login() {
   const [isRegister, setIsRegister] = useState(false);
@@ -25,7 +26,7 @@ export default function Login() {
             className="text-xl font-bold text-center"
             style={{ color: "#44a1dc" }}
           >
-            Management System
+            <ThemeText text={"Management System"} />
           </h1>
           <div className="flex justify-center mt-4 space-x-4">
             <button
