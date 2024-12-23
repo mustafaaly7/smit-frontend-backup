@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import logo from "./assets/images/logo-OpazD70S.png";
 import BlueButton from "./components/blueButton";
 
-export default function AuthPage() {
+export default function Login() {
   const [isRegister, setIsRegister] = useState(false);
 
   return (
