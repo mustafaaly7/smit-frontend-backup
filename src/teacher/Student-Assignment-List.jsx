@@ -1,7 +1,6 @@
 import { courseData, studentsData } from "../components/data";
 import Header from "../components/Header";
 import { useParams } from "react-router-dom";
-import { motion } from "framer-motion";
 import { useState } from "react";
 
 const StudentList = () => {
@@ -39,23 +38,13 @@ const StudentList = () => {
     handleModalClose();
   };
 
-  const rowVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
     <div>
       <Header />
 
-      <motion.h1
-        className="text-blue-800 font-bold text-3xl md:text-4xl mx-4 md:mx-16 mt-5"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
+      <h1 className="text-blue-800 font-bold text-3xl md:text-4xl mx-4 md:mx-16 mt-5">
         Student Details
-      </motion.h1>
+      </h1>
 
       <h2 className="text-lg md:text-2xl text-black-800 mx-4 md:mx-16 mt-2 font-bold flex items-center">
         Course Name: {courseName}
@@ -93,14 +82,7 @@ const StudentList = () => {
           </thead>
           <tbody>
             {studentsData.map((student, index) => (
-              <motion.tr
-                key={index}
-                className="hover:bg-gray-100"
-                variants={rowVariants}
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
+              <tr key={index} className="hover:bg-gray-100">
                 <td className="px-4 py-2 md:px-6 md:py-4 border border-gray-300 text-center">
                   {student.name}
                 </td>
@@ -119,7 +101,7 @@ const StudentList = () => {
                 <td className="px-4 py-2 md:px-6 md:py-4 border border-gray-300 text-center">
                   {student.result}
                 </td>
-              </motion.tr>
+              </tr>
             ))}
           </tbody>
         </table>
@@ -233,15 +215,15 @@ const StudentList = () => {
                 <button
                   type="button"
                   onClick={handleModalClose}
-                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded mr-2"
+                  className="bg-gray-500 text-white py-2 px-4 rounded-md mr-2 hover:bg-gray-600"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="bg-blue-800 hover:bg-blue-600 text-white px-4 py-2 rounded"
+                  className="bg-blue-800 text-white py-2 px-4 rounded-md hover:bg-blue-700"
                 >
-                  Submit
+                  Add Assignment
                 </button>
               </div>
             </form>

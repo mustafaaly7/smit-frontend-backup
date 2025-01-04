@@ -8,7 +8,7 @@ export default function Teacher() {
   return (
     <div>
       <Header />
-      <h1 className="text-blue-800 font-bold text-4xl text-center mb-8">
+      <h1 className="text-blue-800 font-bold text-4xl text-center mb--16">
         Teacher Courses Detail
       </h1>
       <section className="text-gray-600 body-font">
