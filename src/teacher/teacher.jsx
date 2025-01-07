@@ -17,7 +17,7 @@ export default function Teacher() {
             <div className="flex items-center justify-end mb-6">
               <div className="flex  space-x-3 items-end">
                 <FaUserCircle className="text-3xl text-blue-800" />
-                <span className="font-semibold text-xl">Teacher Profile</span>
+                <span className="font-semibold text-xl">Profile</span>
               </div>
             </div>
           </Link>
