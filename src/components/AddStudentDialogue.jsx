@@ -1,9 +1,7 @@
 // src/components/AddStudentDialog.js
-import React, { useState } from "react";
+import React from "react";
 
 export default function AddStudentDialog({ form, setForm, handleAddStudent, setShowDialog }) {
-  const [errors, setErrors] = useState({});
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -20,38 +18,10 @@ export default function AddStudentDialog({ form, setForm, handleAddStudent, setS
     }
   };
 
-  const validateForm = () => {
-    const newErrors = {};
-    // Check all required fields
-    if (!form.fullName) newErrors.fullName = "Full Name is required";
-    if (!form.email) newErrors.email = "Email is required";
-    if (!form.batch) newErrors.batch = "Batch is required";
-    if (!form.phone) newErrors.phone = "Phone Number is required";
-    if (!form.gender) newErrors.gender = "Gender is required";
-
-    if (!form.password) newErrors.password = "Password is required";
-
-    if (!form.subject) newErrors.subject = "Subject is required"; // This might be optional for students
-    if (!form.about) newErrors.about = "About the Student is required";
-    if (!form.picture) newErrors.picture = "Picture is required";
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0; // returns true if no errors
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
-
-      handleAddStudent(); // Ensure this function is invoked
-    }
+    handleAddStudent();
   };
-  
-
-      handleAddStudent();
-    }
-  };
-
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
@@ -67,10 +37,8 @@ export default function AddStudentDialog({ form, setForm, handleAddStudent, setS
                   placeholder="Full Name"
                   value={form.fullName}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
-                {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
               </div>
 
               <div>
@@ -80,10 +48,8 @@ export default function AddStudentDialog({ form, setForm, handleAddStudent, setS
                   placeholder="Email address"
                   value={form.email}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
-                {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
               </div>
 
               <div>
@@ -93,10 +59,8 @@ export default function AddStudentDialog({ form, setForm, handleAddStudent, setS
                   placeholder="Batch"
                   value={form.batch}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
-                {errors.batch && <p className="text-red-500 text-sm">{errors.batch}</p>}
               </div>
 
               <div>
@@ -106,10 +70,8 @@ export default function AddStudentDialog({ form, setForm, handleAddStudent, setS
                   placeholder="Phone Number"
                   value={form.phone}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
-                {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
               </div>
             </div>
 
@@ -119,7 +81,6 @@ export default function AddStudentDialog({ form, setForm, handleAddStudent, setS
                   name="gender"
                   value={form.gender}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 >
                   <option value="" disabled>Select Gender</option>
@@ -127,9 +88,7 @@ export default function AddStudentDialog({ form, setForm, handleAddStudent, setS
                   <option value="Female">Female</option>
                   <option value="Other">Other</option>
                 </select>
-                {errors.gender && <p className="text-red-500 text-sm">{errors.gender}</p>}
               </div>
-
 
               <div>
                 <input
@@ -138,26 +97,19 @@ export default function AddStudentDialog({ form, setForm, handleAddStudent, setS
                   placeholder="Password"
                   value={form.password}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
-                {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
               </div>
-
 
               <div>
                 <input
                   type="text"
                   name="subject"
-
-                  placeholder="Subject"
                   placeholder="Subject (Optional)"
-
                   value={form.subject}
                   onChange={handleInputChange}
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
-                {errors.subject && <p className="text-red-500 text-sm">{errors.subject}</p>}
               </div>
 
               <div>
@@ -166,11 +118,9 @@ export default function AddStudentDialog({ form, setForm, handleAddStudent, setS
                   placeholder="About the Student"
                   value={form.about}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   rows="4"
                 ></textarea>
-                {errors.about && <p className="text-red-500 text-sm">{errors.about}</p>}
               </div>
 
               <div>
@@ -178,10 +128,8 @@ export default function AddStudentDialog({ form, setForm, handleAddStudent, setS
                   type="file"
                   name="picture"
                   onChange={handleImageChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
-                {errors.picture && <p className="text-red-500 text-sm">{errors.picture}</p>}
               </div>
             </div>
           </div>

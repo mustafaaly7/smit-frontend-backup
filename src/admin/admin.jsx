@@ -1,7 +1,4 @@
-
 import { useState, useEffect } from "react";
-
-import { useState } from "react";
 
 import BlueButton from "../components/button";
 import Sidebar from "../components/SideBar";
@@ -10,10 +7,8 @@ import { FaBars, FaTimes } from "react-icons/fa";
 
 import StateCard from "../components/StateCard";
 
-
 const Admin = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
 
   // State variables for courses, teachers, students, and active courses
   const [courses, setCourses] = useState(0);
@@ -21,18 +16,18 @@ const Admin = () => {
   const [students, setStudents] = useState(0);
   const [activeCourses, setActiveCourses] = useState(0);
 
-
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-
 
   // Fetch data from localStorage on component mount
   useEffect(() => {
     const storedCourses = JSON.parse(localStorage.getItem("courses")) || [];
     const storedTeachers = JSON.parse(localStorage.getItem("teachers")) || [];
     const storedStudents = JSON.parse(localStorage.getItem("students")) || [];
-    const storedActiveCourses = storedCourses.filter(course => course.isActive).length;
+    const storedActiveCourses = storedCourses.filter(
+      (course) => course.isActive
+    ).length;
 
     setCourses(storedCourses.length);
     setTeachers(storedTeachers.length);
@@ -40,19 +35,14 @@ const Admin = () => {
     setActiveCourses(storedActiveCourses);
   }, []);
 
-
   return (
     <div className="flex flex-col lg:flex-row min-h-screen bg-gray-50">
       {/* Navbar for Mobile/Tablet */}
       <div className="lg:hidden flex items-start p-4 bg-[#44a1dc] text-white">
- 
-        <button onClick={toggleSidebar} className="text-white text-2xl focus:outline-none">
-
         <button
           onClick={toggleSidebar}
           className="text-white text-2xl focus:outline-none"
         >
-
           {isSidebarOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
@@ -68,19 +58,19 @@ const Admin = () => {
 
       {/* Overlay for Mobile Sidebar */}
       {isSidebarOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 lg:hidden" onClick={toggleSidebar}></div>
-
         <div
           className="fixed inset-0 bg-black bg-opacity-50 lg:hidden"
           onClick={toggleSidebar}
         ></div>
-
       )}
 
       {/* Main Content */}
       <div className="flex-1 p-8">
         <header className="flex justify-between items-center mb-8">
-          <ThemeText text={"Welcome to your dashboard , S.M.I.T"} className={"text-3xl"} />
+          <ThemeText
+            text={"Welcome to your dashboard, S.M.I.T"}
+            className={"text-3xl"}
+          />
           <BlueButton text="LogOut" className="w-20" />
         </header>
 
@@ -112,7 +102,7 @@ const Admin = () => {
           />
         </div>
 
-        {/* Pie chart */}
+        {/* Pie Chart */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-white p-4 rounded shadow">
             <p className="text-gray-500 mb-4">Total Students by Gender</p>
@@ -140,13 +130,17 @@ const Admin = () => {
             </div>
           </div>
 
-          {/* Attendance chart */}
+          {/* Attendance Chart */}
           <div className="bg-white p-4 rounded shadow">
             <div className="flex justify-between items-center mb-4">
               <p className="text-gray-500">Attendance</p>
               <div className="flex space-x-2">
-                <button className="bg-gray-200 text-gray-600 px-2 py-1 rounded">This week</button>
-                <button className="bg-gray-200 text-gray-600 px-2 py-1 rounded">Class 10</button>
+                <button className="bg-gray-200 text-gray-600 px-2 py-1 rounded">
+                  This week
+                </button>
+                <button className="bg-gray-200 text-gray-600 px-2 py-1 rounded">
+                  Class 10
+                </button>
               </div>
             </div>
             <div>
@@ -158,22 +152,11 @@ const Admin = () => {
                 width="300"
               />
             </div>
-            <div className="flex justify-center mt-4">
-              <div className="mr-4">
-                <span className="text-blue-500">Total Present</span>
-              </div>
-              <div>
-                <span className="text-teal-500">Total Absent</span>
-              </div>
-            </div>
-=======
-          <ThemeText
-            text={"Welcome to your dashboard , S.M.I.T"}
-            className={"text-3xl"}
-          />
-          <BlueButton text="LogOut" className="w-20" />
-        </header>
-        <div className="space-y-4">
+          </div>
+        </div>
+
+        {/* Additional Sections */}
+        <div className="space-y-4 mt-8">
           <div className="p-4 bg-white rounded shadow">
             <h2 className="font-semibold text-lg">Add other admins</h2>
             <p className="text-sm text-gray-600">
@@ -197,7 +180,6 @@ const Admin = () => {
               students. When you give them a pricing plan, they’ll appear on
               your site!
             </p>
-
           </div>
         </div>
       </div>

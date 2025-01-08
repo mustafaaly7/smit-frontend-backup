@@ -76,6 +76,9 @@ export default function AdminTeacher() {
           localStorage.setItem("teachers", JSON.stringify(updatedTeachers));
         },
         header: false,
+        error: (error) => {
+          console.error("Error parsing CSV file: ", error.message);
+        },
       });
     }
   };
@@ -153,8 +156,6 @@ export default function AdminTeacher() {
         <div className="bg-white p-6 rounded-lg shadow-md">
           {teachers.length > 0 ? (
             <div className="overflow-x-auto max-h-[480px]">
-            <div className="overflow-x-auto max-w-full">
-
               <table className="w-full table-auto border border-gray-300">
                 <thead className="bg-gray-100">
                   <tr>
@@ -162,9 +163,7 @@ export default function AdminTeacher() {
                     <th className="text-left px-4 py-2 border">Name</th>
                     <th className="text-left px-4 py-2 border">Subject</th>
                     <th className="text-left px-4 py-2 border">Batch</th>
-                    <th className="text-left px-4 py-2 border">
-                      Email Address
-                    </th>
+                    <th className="text-left px-4 py-2 border">Email Address</th>
                     <th className="text-left px-4 py-2 border">Gender</th>
                   </tr>
                 </thead>

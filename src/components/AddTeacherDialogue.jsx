@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 
-
 export default function AddTeacherDialog({
   form,
   setForm,
   handleAddTeacher,
   setShowDialog,
 }) {
-
-export default function AddTeacherDialog({ form, setForm, handleAddTeacher, setShowDialog }) {
-
   const [errors, setErrors] = useState({});
 
   const handleInputChange = (e) => {
@@ -30,20 +26,18 @@ export default function AddTeacherDialog({ form, setForm, handleAddTeacher, setS
 
   const validateForm = () => {
     const newErrors = {};
-    // Check all required fields
     if (!form.fullName) newErrors.fullName = "Full Name is required";
     if (!form.email) newErrors.email = "Email is required";
     if (!form.batch) newErrors.batch = "Batch is required";
     if (!form.phone) newErrors.phone = "Phone Number is required";
     if (!form.gender) newErrors.gender = "Gender is required";
-
     if (!form.password) newErrors.password = "Password is required";
     if (!form.subject) newErrors.subject = "Subject is required";
     if (!form.about) newErrors.about = "About the Teacher is required";
     if (!form.picture) newErrors.picture = "Picture is required";
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0; // returns true if no errors
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e) => {
@@ -67,18 +61,12 @@ export default function AddTeacherDialog({ form, setForm, handleAddTeacher, setS
                   placeholder="Full Name"
                   value={form.fullName}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
-
                 {errors.fullName && (
                   <p className="text-red-500 text-sm">{errors.fullName}</p>
                 )}
-
-                {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
-
               </div>
-
               <div>
                 <input
                   type="email"
@@ -86,15 +74,12 @@ export default function AddTeacherDialog({ form, setForm, handleAddTeacher, setS
                   placeholder="Email address"
                   value={form.email}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm">{errors.email}</p>
                 )}
-                {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
               </div>
-
               <div>
                 <input
                   type="text"
@@ -102,15 +87,12 @@ export default function AddTeacherDialog({ form, setForm, handleAddTeacher, setS
                   placeholder="Batch"
                   value={form.batch}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
                 {errors.batch && (
                   <p className="text-red-500 text-sm">{errors.batch}</p>
                 )}
-                {errors.batch && <p className="text-red-500 text-sm">{errors.batch}</p>}
               </div>
-
               <div>
                 <input
                   type="text"
@@ -118,45 +100,32 @@ export default function AddTeacherDialog({ form, setForm, handleAddTeacher, setS
                   placeholder="Phone Number"
                   value={form.phone}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
                 {errors.phone && (
                   <p className="text-red-500 text-sm">{errors.phone}</p>
                 )}
-
-                {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
               </div>
             </div>
-
             <div className="space-y-4">
               <div>
                 <select
                   name="gender"
                   value={form.gender}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 >
-
                   <option value="" disabled>
                     Select Gender
                   </option>
-
-                  <option value="" disabled>Select Gender</option>
-
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                   <option value="Other">Other</option>
                 </select>
-
                 {errors.gender && (
                   <p className="text-red-500 text-sm">{errors.gender}</p>
                 )}
-
-                {errors.gender && <p className="text-red-500 text-sm">{errors.gender}</p>}
               </div>
-
               <div>
                 <input
                   type="password"
@@ -164,13 +133,12 @@ export default function AddTeacherDialog({ form, setForm, handleAddTeacher, setS
                   placeholder="Password"
                   value={form.password}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
-                {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
-
+                {errors.password && (
+                  <p className="text-red-500 text-sm">{errors.password}</p>
+                )}
               </div>
-
               <div>
                 <input
                   type="text"
@@ -178,51 +146,38 @@ export default function AddTeacherDialog({ form, setForm, handleAddTeacher, setS
                   placeholder="Subject"
                   value={form.subject}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
                 {errors.subject && (
                   <p className="text-red-500 text-sm">{errors.subject}</p>
                 )}
-
-                {errors.subject && <p className="text-red-500 text-sm">{errors.subject}</p>}
               </div>
-
               <div>
                 <textarea
                   name="about"
                   placeholder="About the Teacher"
                   value={form.about}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   rows="4"
                 ></textarea>
                 {errors.about && (
                   <p className="text-red-500 text-sm">{errors.about}</p>
                 )}
-
-                {errors.about && <p className="text-red-500 text-sm">{errors.about}</p>}
-
               </div>
-
               <div>
                 <input
                   type="file"
                   name="picture"
                   onChange={handleImageChange}
-                  required
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
                 {errors.picture && (
                   <p className="text-red-500 text-sm">{errors.picture}</p>
                 )}
-
-                {errors.picture && <p className="text-red-500 text-sm">{errors.picture}</p>}
               </div>
             </div>
           </div>
-
           <div className="flex justify-end space-x-4 mt-6">
             <button
               type="button"
