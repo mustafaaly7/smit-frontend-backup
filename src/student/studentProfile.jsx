@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StudentsData } from './coursedata/data'; // Ensure the path is correct
 
-const StudentProfile = () => {
+function StudentProfile  ()  {
   const [loggedInStudent, setLoggedInStudent] = useState(null);
 
   useEffect(() => {

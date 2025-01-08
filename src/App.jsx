@@ -10,14 +10,13 @@ import StudentList from "./teacher/Student-Assignment-List";
 import AdminTeacher from "./admin/adminTeacher";
 import AdminTeacherDetails from "./admin/adminTeacherDetail";
 import AdminStudent from "./admin/adminStudent";
-import StudentProfile from "./student/studentprofile";
-// import Assignments from "./student/studentassignment";
 import Courses from "./student/studentcourse";
 import AssignmentsPage from "./student/studentassignment";
 
 
 import AdminCourse from "./admin/adminCourse";
 import ForgotPassword from "./forgotPassword";
+import StudentProfile from "./student/studentprofile";
 
 
 
