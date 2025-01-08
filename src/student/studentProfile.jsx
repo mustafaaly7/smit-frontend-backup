@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { StudentsData } from './coursedata/data'; // Ensure the path is correct
+import React, { useState, useEffect } from "react";
+import { StudentsData } from "./coursedata/data"; // Ensure the path is correct
 
-function StudentProfile  ()  {
+function StudentProfile() {
   const [loggedInStudent, setLoggedInStudent] = useState(null);
 
   useEffect(() => {
@@ -21,8 +21,12 @@ function StudentProfile  ()  {
               className="w-24 h-24 rounded-full border-4 border-teal-500 mr-6"
             />
             <div>
-              <h1 className="text-4xl font-semibold text-gray-800">{loggedInStudent.name}</h1>
-              <p className="text-lg text-gray-600">Student ID: {loggedInStudent.id}</p>
+              <h1 className="text-4xl font-semibold text-gray-800">
+                {loggedInStudent.name}
+              </h1>
+              <p className="text-lg text-gray-600">
+                Student ID: {loggedInStudent.id}
+              </p>
               <p className="text-lg text-teal-500">{loggedInStudent.teacher}</p>
             </div>
           </div>
@@ -35,13 +39,24 @@ function StudentProfile  ()  {
 
           {/* Courses Enrolled Section */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Enrolled Courses</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              Enrolled Courses
+            </h2>
             <ul className="space-y-4">
               {loggedInStudent.enrolledCourses.map((course, index) => (
-                <li key={index} className="bg-teal-100 p-4 rounded-lg shadow-md">
-                  <h3 className="text-xl font-semibold text-teal-700">{course.title}</h3>
-                  <p className="text-sm text-gray-600">Instructor: {course.teacher}</p>
-                  <p className="text-sm text-gray-600">Start Date: {course.startDate}</p>
+                <li
+                  key={index}
+                  className="bg-teal-100 p-4 rounded-lg shadow-md"
+                >
+                  <h3 className="text-xl font-semibold text-teal-700">
+                    {course.title}
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Instructor: {course.teacher}
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    Start Date: {course.startDate}
+                  </p>
                 </li>
               ))}
             </ul>
@@ -50,6 +65,6 @@ function StudentProfile  ()  {
       )}
     </div>
   );
-};
+}
 
 export default StudentProfile;
