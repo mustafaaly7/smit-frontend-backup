@@ -1,4 +1,3 @@
-// MOIZ WORK
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "./assets/images/logo-OpazD70S.png";
@@ -32,7 +31,7 @@ export default function Login() {
             <button
               className={`p-2 px-4 rounded-lg font-medium transition-colors ${
                 !isRegister
-                  ? "bg-blue-500 text-white"
+                  ? "bg-[#44a1dc] text-white"
                   : "bg-gray-200 text-gray-600"
               }`}
               onClick={() => setIsRegister(false)}
@@ -42,16 +41,13 @@ export default function Login() {
             <button
               className={`p-2 px-4 rounded-lg font-medium transition-colors ${
                 isRegister
-                  ? "bg-blue-500 text-white"
+                  ? "bg-[#44a1dc] text-white"
                   : "bg-gray-200 text-gray-600"
               }`}
               onClick={() => setIsRegister(true)}
             >
               Register
             </button>
-            <Link to={"./Admin"}>
-              <BlueButton text="ADMIN" />
-            </Link>
           </div>
           <br />
           {isRegister ? (
@@ -92,11 +88,17 @@ export default function Login() {
                 required
                 className="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
               />
-              {/* moiz work */}
               <Link to={"/admin"}>
                 <BlueButton text="Log In" className="w-full" />
               </Link>
-              {/* moiz work */}
+              <div className="text-center mt-2">
+                <Link
+                  to={"/forgotPassword"}
+                  className="text-blue-500 hover:underline"
+                >
+                  Forgot Password?
+                </Link>
+              </div>
             </form>
           )}
         </div>
