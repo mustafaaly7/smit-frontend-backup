@@ -14,7 +14,6 @@ import AdminStudent from "./admin/adminStudent";
 
 import AdminCourse from "./admin/adminCourse";
 import ForgotPassword from "./forgotPassword";
-import Assignments from "./student/studentassignment";
 import StudentProfile from "./student/studentprofile";
 
 
