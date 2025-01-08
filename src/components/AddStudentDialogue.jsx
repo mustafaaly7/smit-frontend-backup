@@ -28,7 +28,9 @@ export default function AddStudentDialog({ form, setForm, handleAddStudent, setS
     if (!form.batch) newErrors.batch = "Batch is required";
     if (!form.phone) newErrors.phone = "Phone Number is required";
     if (!form.gender) newErrors.gender = "Gender is required";
+
     if (!form.password) newErrors.password = "Password is required";
+
     if (!form.subject) newErrors.subject = "Subject is required"; // This might be optional for students
     if (!form.about) newErrors.about = "About the Student is required";
     if (!form.picture) newErrors.picture = "Picture is required";
@@ -40,9 +42,16 @@ export default function AddStudentDialog({ form, setForm, handleAddStudent, setS
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
+
+      handleAddStudent(); // Ensure this function is invoked
+    }
+  };
+  
+
       handleAddStudent();
     }
   };
+
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
@@ -121,6 +130,7 @@ export default function AddStudentDialog({ form, setForm, handleAddStudent, setS
                 {errors.gender && <p className="text-red-500 text-sm">{errors.gender}</p>}
               </div>
 
+
               <div>
                 <input
                   type="password"
@@ -134,11 +144,15 @@ export default function AddStudentDialog({ form, setForm, handleAddStudent, setS
                 {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
               </div>
 
+
               <div>
                 <input
                   type="text"
                   name="subject"
+
+                  placeholder="Subject"
                   placeholder="Subject (Optional)"
+
                   value={form.subject}
                   onChange={handleInputChange}
                   className="border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
