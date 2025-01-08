@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { StudentsData } from './coursedata/data'; // Ensure the path is correct
 import BlueButton from '../components/button';
 
-const Assignments = () => {
+function Assignments  ()  {
   const { courseId } = useParams(); // Get course ID from route params
 
   // Assuming first student is logged in

@@ -3,7 +3,7 @@ import { CoursesData, StudentsData } from './coursedata/data'; // Ensure the pat
 import { useNavigate } from 'react-router-dom';
 import BlueButton from '../components/button';
 
-const Courses = () => {
+function Courses  ()  {
   const [modalCourse, setModalCourse] = useState(null); // For modal data
   const [viewDetailsModal, setViewDetailsModal] = useState(false); // Modal state
   const [sortBy, setSortBy] = useState('startDate'); // Sorting criteria

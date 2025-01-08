@@ -5,7 +5,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import StudentSidebar from "../components/studentsidebar";
 import { Link } from "react-router-dom";
 
-const Student = () => {
+function Student  ()  {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [assignments, setAssignments] = useState([]); // State for assignments
   const [selectedAssignment, setSelectedAssignment] = useState(null); // Selected assignment for popup
