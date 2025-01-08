@@ -37,7 +37,7 @@ export default function Sidebar() {
                 className="flex items-center space-x-2 hover:text-gray-300"
               >
                 <FaHome size={18} />
-                <span>Dashboard</span>
+                <span>student dasboard</span>
               </Link>
             </li>
             <li>

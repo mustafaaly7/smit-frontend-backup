@@ -6,10 +6,15 @@ import Login from "./login";
 import AdminTeacher from "./admin/adminTeacher";
 import AdminTeacherDetails from "./admin/adminTeacherDetail";
 import AdminStudent from "./admin/adminStudent";
-moiz
+import StudentProfile from "./student/studentprofile";
+// import Assignments from "./student/studentassignment";
+import Courses from "./student/studentcourse";
+import AssignmentsPage from "./student/studentassignment";
+
+
 import AdminCourse from "./admin/adminCourse";
 import ForgotPassword from "./forgotPassword";
- main
+
 
 function App() {
   return (
@@ -23,10 +28,16 @@ function App() {
           <Route path="/adminTeacher" element={<AdminTeacher />} />
           <Route path="/teacher/:id" element={<AdminTeacherDetails />} />  {/* The route for the Teacher Details page */}
           <Route path="/adminStudent" element={<AdminStudent />} />
- moiz
+
+          <Route path="/studentProfile" element={<StudentProfile/>}/> {/* ahsan work*/}
+          {/* <Route path="/studentCourse" element={<Courses/>}/> */}
+          <Route path="/studentCourse" element={<Courses />} />{/* ahsan work*/}
+          <Route path="/assignments/:courseId" element={<AssignmentsPage/>} />{/* ahsan work*/}
+       
+
           <Route path="/adminCourse" element={<AdminCourse />} />
           <Route path="/forgotPassword" element={<ForgotPassword />} />
- main
+
 
 
           {/* Use :id here */}
