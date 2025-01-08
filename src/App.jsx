@@ -10,7 +10,6 @@ import StudentList from "./teacher/Student-Assignment-List";
 import AdminTeacher from "./admin/adminTeacher";
 import AdminTeacherDetails from "./admin/adminTeacherDetail";
 import AdminStudent from "./admin/adminStudent";
-import Courses from "./student/studentcourse";
 import AssignmentsPage from "./student/studentassignment";
 
 
@@ -38,8 +37,7 @@ function App() {
           <Route path="/adminStudent" element={<AdminStudent />} />
 
           <Route path="/studentProfile" element={<StudentProfile/>}/> {/* ahsan work*/}
-          {/* <Route path="/studentCourse" element={<Courses/>}/> */}
-          <Route path="/studentCourse" element={<Courses />} />{/* ahsan work*/}
+          <Route path="/studentCourse" element={<Courses/>}/>
           <Route path="/assignments/:courseId" element={<AssignmentsPage/>} />{/* ahsan work*/}
        
 
