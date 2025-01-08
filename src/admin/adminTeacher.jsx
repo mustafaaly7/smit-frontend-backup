@@ -153,6 +153,8 @@ export default function AdminTeacher() {
         <div className="bg-white p-6 rounded-lg shadow-md">
           {teachers.length > 0 ? (
             <div className="overflow-x-auto max-h-[480px]">
+            <div className="overflow-x-auto max-w-full">
+
               <table className="w-full table-auto border border-gray-300">
                 <thead className="bg-gray-100">
                   <tr>

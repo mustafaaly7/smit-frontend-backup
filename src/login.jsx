@@ -48,6 +48,9 @@ export default function Login() {
             >
               Register
             </button>
+            <Link to={"./Admin"}>
+              <BlueButton text="ADMIN" />
+            </Link>
           </div>
           <br />
           {isRegister ? (
@@ -88,9 +91,11 @@ export default function Login() {
                 required
                 className="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
               />
+              {/* moiz work */}
               <Link to={"/admin"}>
                 <BlueButton text="Log In" className="w-full" />
               </Link>
+
               <div className="text-center mt-2">
                 <Link
                   to={"/forgotPassword"}
@@ -99,6 +104,9 @@ export default function Login() {
                   Forgot Password?
                 </Link>
               </div>
+
+              {/* moiz work */}
+
             </form>
           )}
         </div>

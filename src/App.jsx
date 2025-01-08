@@ -6,8 +6,10 @@ import Login from "./login";
 import AdminTeacher from "./admin/adminTeacher";
 import AdminTeacherDetails from "./admin/adminTeacherDetail";
 import AdminStudent from "./admin/adminStudent";
+moiz
 import AdminCourse from "./admin/adminCourse";
 import ForgotPassword from "./forgotPassword";
+ main
 
 function App() {
   return (
@@ -21,8 +23,10 @@ function App() {
           <Route path="/adminTeacher" element={<AdminTeacher />} />
           <Route path="/teacher/:id" element={<AdminTeacherDetails />} />  {/* The route for the Teacher Details page */}
           <Route path="/adminStudent" element={<AdminStudent />} />
+ moiz
           <Route path="/adminCourse" element={<AdminCourse />} />
           <Route path="/forgotPassword" element={<ForgotPassword />} />
+ main
 
 
           {/* Use :id here */}

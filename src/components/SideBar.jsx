@@ -3,14 +3,27 @@ import {
   FaHome,
   FaChalkboardTeacher,
   FaUserGraduate,
+ 
   FaFileAlt,
   FaBook,
+
+  FaCreditCard,
+  FaCog,
+  FaFileAlt,
+  FaStar,
+ 
 } from "react-icons/fa";
 import logo from "../assets/images/logo-OpazD70S.png";
 
 export default function Sidebar() {
   return (
+
     <div className="h-screen p-4 flex flex-col bg-[#44a1dc] text-white">
+
+    <div
+      className="h-screen p-4 flex flex-col bg-[#44a1dc] text-white"
+    >
+
       <div className="text-center mb-8 flex justify-center items-center">
         <img src={logo} alt="logo" className="w-36 p-2 rounded-full" />
       </div>
@@ -46,6 +59,7 @@ export default function Sidebar() {
               </Link>
             </li>
             <li>
+
               <Link
                 to={"/AdminCourse"}
                 className="flex items-center space-x-2 hover:text-gray-300"
@@ -53,6 +67,15 @@ export default function Sidebar() {
                 <FaBook size={18} />
                 <span>Manage Courses</span>
               </Link>
+
+              <a
+                href="#"
+                className="flex items-center space-x-2 hover:text-gray-300"
+              >
+                <FaCog size={18} />
+                <span>Settings and Profile</span>
+              </a>
+
             </li>
             <li>
               <a

@@ -171,7 +171,11 @@ export default function AdminStudent() {
 
     <div className="bg-white p-6 rounded-lg shadow-md">
       {students.length > 0 ? (
+\
         <div className="overflow-x-auto max-h-[480px]">
+
+        <div className="overflow-x-auto max-h-[500px]">
+
           <table className="min-w-full border border-gray-300">
             <thead className="bg-gray-100">
               <tr>

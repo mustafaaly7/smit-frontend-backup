@@ -1,12 +1,19 @@
+
 import { useState, useEffect } from "react";
+
+import { useState } from "react";
+
 import BlueButton from "../components/button";
 import Sidebar from "../components/SideBar";
 import ThemeText from "../components/Themetext";
 import { FaBars, FaTimes } from "react-icons/fa";
+
 import StateCard from "../components/StateCard";
+
 
 const Admin = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
 
   // State variables for courses, teachers, students, and active courses
   const [courses, setCourses] = useState(0);
@@ -14,9 +21,11 @@ const Admin = () => {
   const [students, setStudents] = useState(0);
   const [activeCourses, setActiveCourses] = useState(0);
 
+
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
 
   // Fetch data from localStorage on component mount
   useEffect(() => {
@@ -31,11 +40,19 @@ const Admin = () => {
     setActiveCourses(storedActiveCourses);
   }, []);
 
+
   return (
     <div className="flex flex-col lg:flex-row min-h-screen bg-gray-50">
       {/* Navbar for Mobile/Tablet */}
       <div className="lg:hidden flex items-start p-4 bg-[#44a1dc] text-white">
+ 
         <button onClick={toggleSidebar} className="text-white text-2xl focus:outline-none">
+
+        <button
+          onClick={toggleSidebar}
+          className="text-white text-2xl focus:outline-none"
+        >
+
           {isSidebarOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
@@ -52,6 +69,12 @@ const Admin = () => {
       {/* Overlay for Mobile Sidebar */}
       {isSidebarOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 lg:hidden" onClick={toggleSidebar}></div>
+
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 lg:hidden"
+          onClick={toggleSidebar}
+        ></div>
+
       )}
 
       {/* Main Content */}
@@ -143,6 +166,38 @@ const Admin = () => {
                 <span className="text-teal-500">Total Absent</span>
               </div>
             </div>
+=======
+          <ThemeText
+            text={"Welcome to your dashboard , S.M.I.T"}
+            className={"text-3xl"}
+          />
+          <BlueButton text="LogOut" className="w-20" />
+        </header>
+        <div className="space-y-4">
+          <div className="p-4 bg-white rounded shadow">
+            <h2 className="font-semibold text-lg">Add other admins</h2>
+            <p className="text-sm text-gray-600">
+              Create rich course content and coaching products for your
+              students. When you give them a pricing plan, they’ll appear on
+              your site!
+            </p>
+          </div>
+          <div className="p-4 bg-white rounded shadow">
+            <h2 className="font-semibold text-lg">Add classes</h2>
+            <p className="text-sm text-gray-600">
+              Create rich course content and coaching products for your
+              students. When you give them a pricing plan, they’ll appear on
+              your site!
+            </p>
+          </div>
+          <div className="p-4 bg-white rounded shadow">
+            <h2 className="font-semibold text-lg">Add students</h2>
+            <p className="text-sm text-gray-600">
+              Create rich course content and coaching products for your
+              students. When you give them a pricing plan, they’ll appear on
+              your site!
+            </p>
+
           </div>
         </div>
       </div>
