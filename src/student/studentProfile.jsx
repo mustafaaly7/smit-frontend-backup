@@ -53,4 +53,3 @@ const StudentProfile = () => {
 };
 
 export default StudentProfile;
-np
