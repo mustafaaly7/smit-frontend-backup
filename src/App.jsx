@@ -12,7 +12,8 @@ import ForgotPassword from "./forgotPassword";
 import Courses from "./student/studentCourse";
 import Assignments from "./student/studentAssignment";
 import StudentProfile from "./student/studentProfile";
-
+import TeacherProfile from "./teacher/teacher-Profile";
+import StudentList from "./teacher/Student-Assignment-List";
 function App() {
   return (
     <>
@@ -29,7 +30,8 @@ function App() {
           <Route path="/forgotPassword" element={<ForgotPassword />} />
           <Route path="/studentcourse" element={<Courses />} />
           <Route path="/assignments/:courseId" element={<Assignments />} /> {/* Define the Assignments route */}
-
+          <Route path="/teacher-profile" element={<TeacherProfile />} />
+          <Route path="/student-list/:id" element={<StudentList />} />
           <Route path="/studentProfile" element={<StudentProfile />} />
         </Routes>
       </BrowserRouter>
