@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Admin from "./admin/admin";
 import Teacher from "./teacher/teacher";
 import Student from "./student/student";
@@ -14,12 +14,19 @@ import Assignments from "./student/studentAssignment";
 import StudentProfile from "./student/studentProfile";
 import TeacherProfile from "./teacher/teacher-Profile";
 import StudentList from "./teacher/Student-Assignment-List";
+import { useContext } from "react";
+import { authContext } from "./context/userContext";
 function App() {
+  const{user,setuser} = useContext(authContext)
+
+
+  
+
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route index element={<Login />} />
+          <Route index  element={user ?  <Navigate to={"/student"} /> :<Login /> } />
           <Route path="/teacher" element={<Teacher />} />
           <Route path="/student" element={<Student />} />
           <Route path="/admin" element={<Admin />} />

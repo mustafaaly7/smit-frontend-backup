@@ -1,11 +1,49 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "./assets/images/logo-OpazD70S.png";
 import BlueButton from "./components/button";
 import ThemeText from "./components/Themetext";
+import axios from "axios";
+import { appRoutes } from "./constant/constant";
+import Cookies from "js-cookie";
+import { authContext } from "./context/userContext";
+
 
 export default function Login() {
   const [isRegister, setIsRegister] = useState(false);
+const { user,setuser} = useContext(authContext)
+
+const handleLogin =(e)=>{
+e.preventDefault()
+const obj ={
+  email : e.target[0].value,
+  password : e.target[1].value
+}
+
+axios.post(appRoutes.login , obj).then((res)=>{
+if(res?.data?.data?.token ||res?.data?.data?.user ){
+
+  Cookies.set("token" , res?.data?.data?.token)
+  console.log("token ," , res?.data?.data?.token);
+  
+  setuser(res?.data?.data?.user)
+  console.log("user =>" , user);
+  
+}
+else {
+  console.log("Invalid data !");
+  
+}
+  
+  
+}).catch((err)=>{
+console.log("error => ", err.message);
+
+})
+
+
+}
+
 
   return (
     <>
@@ -48,13 +86,13 @@ export default function Login() {
             >
               Register
             </button>
-            <Link to={"./Admin"}>
+            {/* <Link to={"./Admin"}> */}
               <BlueButton text="ADMIN" />
-            </Link>
+            {/* </Link> */}
           </div>
           <br />
           {isRegister ? (
-            <form className="flex flex-col space-y-4">
+            <form className="flex flex-col space-y-4" >
               <input
                 type="text"
                 placeholder="Name"
@@ -78,7 +116,7 @@ export default function Login() {
               </Link>
             </form>
           ) : (
-            <form className="flex flex-col space-y-4">
+            <form className="flex flex-col space-y-4" onSubmit={handleLogin}>
               <input
                 type="email"
                 placeholder="Email"
@@ -92,17 +130,17 @@ export default function Login() {
                 className="p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
               />
               {/* moiz work */}
-              <Link to={"/admin"}>
-                <BlueButton text="Log In" className="w-full" />
-              </Link>
+              {/* <Link to={"/admin"}> */}
+                <BlueButton text="Log In" className="w-full" type="submit" />
+              {/* </Link> */}
 
               <div className="text-center mt-2">
-                <Link
+                {/* <Link
                   to={"/forgotPassword"}
                   className="text-blue-500 hover:underline"
                 >
                   Forgot Password?
-                </Link>
+                </Link> */}
               </div>
 
               {/* moiz work */}
