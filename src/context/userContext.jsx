@@ -13,7 +13,6 @@ const [user,setuser] = useState(null)
 
 
 
-
 useEffect(()=>{
 if(!user){
     const token =  Cookies.get("token")
@@ -48,10 +47,17 @@ if(!user){
     
     }
 
+const logout =()=>{
+Cookies.remove("token")
+setuser(null)
+
+}
+
+
 
 return(
 
-<authContext.Provider value={{user,setuser}}>
+<authContext.Provider value={{user,setuser,logout}}>
 
 {children}
 </authContext.Provider>
