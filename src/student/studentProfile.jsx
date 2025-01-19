@@ -1,40 +1,54 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { StudentsData } from "./coursedata/data"; // Ensure the path is correct
+import Cookies from "js-cookie";
+import { authContext } from "../context/userContext";
+import avatar from "../../public/images/avatar.jpg"
 
 function StudentProfile() {
-  const [loggedInStudent, setLoggedInStudent] = useState(null);
+const{user , setuser} = useContext(authContext)
 
-  useEffect(() => {
-    // Set logged-in student (default to first student)
-    setLoggedInStudent(StudentsData[0]); // Replace this with your actual logic
-  }, []);
+
+
+
+
+
+
+useEffect(() => {
+  
+  
+  
+  
+  console.log(("USER => ", user._id));
+
+  
+
+  }, [user]);
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
-      {loggedInStudent && (
         <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-xl p-8">
           {/* Profile Header */}
           <div className="flex items-center mb-8">
             <img
-              src={loggedInStudent.avatar}
+              src={avatar}
               alt="Student Avatar"
               className="w-24 h-24 rounded-full border-4 border-teal-500 mr-6"
             />
             <div>
               <h1 className="text-4xl font-semibold text-gray-800">
-                {loggedInStudent.name}
+                {user.fullname}
               </h1>
               <p className="text-lg text-gray-600">
-                Student ID: {loggedInStudent.id}
+                Student ID: {user.std_id}
               </p>
-              <p className="text-lg text-teal-500">{loggedInStudent.teacher}</p>
+              <p className="text-lg text-teal-500"> Age :{user.age}</p>
             </div>
           </div>
 
           {/* Bio Section */}
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Bio</h2>
-            <p className="text-lg text-gray-700">{loggedInStudent.bio}</p>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Email</h2>
+            <p className="text-lg text-gray-700">{user.email}</p>
           </div>
 
           {/* Courses Enrolled Section */}
@@ -42,7 +56,11 @@ function StudentProfile() {
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
               Enrolled Courses
             </h2>
-            <ul className="space-y-4">
+
+
+            {/* //GONNA WORK ON COURSES LATER ON OTD 1-19-2025  */}
+
+            {/* <ul className="space-y-4">
               {loggedInStudent.enrolledCourses.map((course, index) => (
                 <li
                   key={index}
@@ -59,11 +77,11 @@ function StudentProfile() {
                   </p>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
         </div>
-      )}
     </div>
+   
   );
 }
 

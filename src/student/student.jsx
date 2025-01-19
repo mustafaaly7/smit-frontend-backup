@@ -1,15 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import BlueButton from "../components/button";
 import ThemeText from "../components/Themetext";
 import { FaBars, FaTimes } from "react-icons/fa";
 import StudentSidebar from "../components/studentsidebar";
-import { Link } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+import { authContext } from "../context/userContext";
 
 function Student  ()  {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [assignments, setAssignments] = useState([]); // State for assignments
   const [selectedAssignment, setSelectedAssignment] = useState(null); // Selected assignment for popup
   const [isPopupOpen, setIsPopupOpen] = useState(false); // Popup visibility state
+const navigate = useNavigate()
+const{logout} = useContext(authContext)
+
+
+
+const logoutHandler=()=>{
+  logout()
+navigate("/")
+
+
+}
+
+
+
 
   // Fetch assignments (mock data for now)
   useEffect(() => {
@@ -92,9 +108,7 @@ function Student  ()  {
             text={"Welcome to your student dashboard, S.M.I.T"}
             className={"text-3xl"}
           />
-          <Link to={"/"}>
-            <BlueButton text="LogOut" className="w-20" />
-          </Link>
+            <BlueButton text="LogOut" className="w-20" onClick={logoutHandler}  />
         </header>
 
         <div className="space-y-4">

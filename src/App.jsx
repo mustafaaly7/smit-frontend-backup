@@ -18,30 +18,32 @@ import { useContext } from "react";
 import { authContext } from "./context/userContext";
 function App() {
   const{user,setuser} = useContext(authContext)
+console.log("USER =>" , user);
 
 
   
 
   return (
     <>
-      <BrowserRouter>
+    <BrowserRouter>
         <Routes>
-          <Route index  element={user ?  <Navigate to={"/student"} /> :<Login /> } />
-          <Route path="/teacher" element={<Teacher />} />
-          <Route path="/student" element={<Student />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/adminTeacher" element={<AdminTeacher />} />
-          <Route path="/teacher/:id" element={<AdminTeacherDetails />} />
-          <Route path="/adminStudent" element={<AdminStudent />} />
-          <Route path="/adminCourse" element={<AdminCourse />} />
-          <Route path="/forgotPassword" element={<ForgotPassword />} />
-          <Route path="/studentcourse" element={<Courses />} />
-          <Route path="/assignments/:courseId" element={<Assignments />} /> {/* Define the Assignments route */}
-          <Route path="/teacher-profile" element={<TeacherProfile />} />
-          <Route path="/student-list/:id" element={<StudentList />} />
-          <Route path="/studentProfile" element={<StudentProfile />} />
+        <Route index element={user ? <Navigate to="/student" /> : <Login />} />
+        <Route path="/teacher" element={user ? <Teacher /> : <Navigate to="/" />} />
+        <Route path="/student" element={user ? <Student /> : <Navigate to="/" />} />
+        <Route path="/admin" element={user ? <Admin /> : <Navigate to="/" />} />
+        <Route path="/adminTeacher" element={user ? <AdminTeacher /> : <Navigate to="/" />} />
+        <Route path="/teacher/:id" element={user ? <AdminTeacherDetails /> : <Navigate to="/" />} />
+        <Route path="/adminStudent" element={user ? <AdminStudent /> : <Navigate to="/" />} />
+        <Route path="/adminCourse" element={user ? <AdminCourse /> : <Navigate to="/" />} />
+        <Route path="/forgotPassword" element={<ForgotPassword />} />
+        <Route path="/studentcourse" element={user ? <Courses /> : <Navigate to="/" />} />
+        <Route path="/assignments/:courseId" element={user ? <Assignments /> : <Navigate to="/" />} />
+        <Route path="/teacher-profile" element={user ? <TeacherProfile /> : <Navigate to="/" />} />
+        <Route path="/student-list/:id" element={user ? <StudentList /> : <Navigate to="/" />} />
+        <Route path="/studentProfile" element={user ? <StudentProfile /> : <Navigate to="/" />} />
         </Routes>
-      </BrowserRouter>
+    </BrowserRouter>
+
     </>
   );
 }
